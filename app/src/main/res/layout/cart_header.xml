@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#9B26AF"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/common_padding"
+    android:paddingTop="@dimen/common_padding"
+    >
+
+    <!---Header for inside the cart -->
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:text="@string/name"
+        android:paddingLeft="12dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/product_list_header_text_size"/>
+
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:text="@string/quantity"
+        android:paddingRight="12dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/product_list_header_text_size"/>
+
+
+</LinearLayout>

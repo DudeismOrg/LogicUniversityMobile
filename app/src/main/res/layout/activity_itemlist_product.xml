@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    tools:context="com.android.ad.mycart.MainActivity">
+
+    <!-- Main Home Page -->
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#CE93D8"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <TextView
+        android:id="@+id/tvProductListHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/my_toolbar"
+        android:background="#9B26AF"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:paddingBottom="@dimen/common_padding"
+        android:paddingTop="@dimen/common_padding"
+        android:text="@string/product_list"
+        android:textAllCaps="true"
+        android:textSize="@dimen/header_text_size"
+        android:textStyle="bold"/>
+
+    <ListView
+        android:id="@+id/lvProducts"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/tvProductListHeader"/>
+
+</RelativeLayout>

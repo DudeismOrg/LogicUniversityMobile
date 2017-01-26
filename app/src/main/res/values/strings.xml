@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LogicUTY</string>
+
+    <string name="font_family_light">sans-serif-light</string>
+    <string name="font_family_medium">sans-serif-medium</string>
+    <string name="font_family_regular">sans-serif</string>
+    <string name="font_family_condensed">sans-serif-condensed</string>
+    <string name="font_family_black">sans-serif-black</string>
+    <string name="font_family_thin">sans-serif-thin</string>
+
+    <string name="text_font">sans-serif</string>
+    <string name="outstanding">Outstanding</string>
+    <string name="itemCode">Item Code</string>
+    <string name="ByDept">By Dept</string>
+    <string name="Description">Description</string>
+    <string name="itemList">Item List</string>
+    <string name="count">Count</string>
+
+    <string name="product_list">Product List</string>
+    <string name="shopping_cart">Shopping Cart</string>
+    <string name="name">Name</string>
+    <string name="login_error_message">Check your login details</string>
+    <string name="unit_price">Unit Price</string>
+    <string name="quantity">Quantity</string>
+    <string name="view">View</string>
+    <string name="action">Action</string>
+    <string name="order">Order</string>
+    <string name="price">Price</string>
+    <string name="total_price">Total Price</string>
+    <string name="remove">Remove</string>
+    <string name="clear_cart">Clear Cart</string>
+    <string name="shop">Shop</string>
+    <string name="delete_item">Delete Item</string>
+    <string name="delete_item_message">Are you sure you want to delete this item?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+</resources>
+

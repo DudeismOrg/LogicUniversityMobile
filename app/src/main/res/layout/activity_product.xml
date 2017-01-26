@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+   >
+
+    <!-- Product details -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#CE93D8"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+    </android.support.v7.widget.Toolbar>
+
+
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/my_toolbar"
+        android:background="#9B26AF"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textSize="@dimen/header_text_size"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvProductDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvProductName"
+        android:paddingBottom="@dimen/common_padding"
+        android:paddingTop="@dimen/common_padding"/>
+
+    <ImageView android:id="@+id/ivProductImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/llAction"
+        android:layout_below="@id/tvProductDesc"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"/>
+
+    <LinearLayout
+        android:id="@id/llAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center_vertical|end"
+            android:text="@string/quantity"/>
+
+        <Spinner
+            android:id="@+id/spQuantity"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"/>
+
+        <Button
+            android:id="@+id/bOrder"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@color/orange"
+            android:text="@string/order"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"/>
+    </LinearLayout>
+</RelativeLayout>
