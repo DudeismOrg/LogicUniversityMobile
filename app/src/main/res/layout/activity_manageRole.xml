@@ -111,7 +111,8 @@
                 android:layout_weight="1"
                 android:textAlignment="center"
                 android:textSize="18dp"
-                android:id="@+id/userRole"/>
+                android:id="@+id/userRole"
+                android:paddingLeft="8dp"/>
 
             <Button
                 android:text="Edit"

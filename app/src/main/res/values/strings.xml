@@ -36,6 +36,9 @@
     <string name="delete_item_message">Are you sure you want to delete this item?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="role1_value">Role 1</string>
+    <string name="role2_value">Role 2</string>
+    <string name="role3_value">Role 3</string>
 
 </resources>
 

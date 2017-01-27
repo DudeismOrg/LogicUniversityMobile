@@ -33,11 +33,6 @@ public class Role extends java.util.HashMap<String,String> {
                 String c = a.getString(i);
                 list.add(c);
                 }
-            /*list.add("1");
-            list.add("2");
-            list.add("1");
-            list.add("2");*/
-
         } catch (Exception e) {
         }
         return list;
@@ -49,7 +44,7 @@ public class Role extends java.util.HashMap<String,String> {
             JSONObject c = JSONParser.getJSONFromUrl(host+"/Role/"+id);
             role = new Role(c.getString("RoleID"),
                     c.getString("RoleCode"),
-                    c.getString("RoleCode"));
+                    c.getString("RoleName"));
         } catch (Exception e) {
         }
         return role;
