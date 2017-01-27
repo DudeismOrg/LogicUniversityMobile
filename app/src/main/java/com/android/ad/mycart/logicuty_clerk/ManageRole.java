@@ -2,10 +2,13 @@ package com.android.ad.mycart.logicuty_clerk;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.android.ad.mycart.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +18,10 @@ public class ManageRole extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_managerole);
 
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
         List<String> schoolNames = new ArrayList<String>();
         schoolNames = Role.listRole();
 
