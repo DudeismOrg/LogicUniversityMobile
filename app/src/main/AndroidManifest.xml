@@ -10,7 +10,7 @@
         >
 
 
-        <activity   
+        <activity
             android:name=".HomepageActivity"
             android:label="LogicUTY">
             <intent-filter>

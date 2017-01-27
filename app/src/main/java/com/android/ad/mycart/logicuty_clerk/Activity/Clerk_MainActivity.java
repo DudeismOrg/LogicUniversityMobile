@@ -3,6 +3,7 @@ package com.android.ad.mycart.logicuty_clerk.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.ad.mycart.HomepageActivity;
 import com.android.ad.mycart.R;
 import com.android.ad.mycart.logicuty_clerk.Model.Clerk_User;
 
@@ -23,6 +25,9 @@ public class Clerk_MainActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clerkmain);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
         clearErrorMessage();
 
 
@@ -51,7 +56,8 @@ public class Clerk_MainActivity extends AppCompatActivity implements View.OnClic
         EditText userName = (EditText) findViewById(R.id.editTextUN);
         EditText password = (EditText) findViewById(R.id.editTextPwd);
 
-        Clerk_User logInUser = new Clerk_User(userName.getText().toString(), password.getText().toString());
+
+       Clerk_User logInUser = new Clerk_User(userName.getText().toString(), password.getText().toString());
         if (logInUser.ValidateUser()) {
             Clerk_User user = logInUser.GetUser();
             Toast.makeText(this, "Redirecting...", Toast.LENGTH_SHORT).show();
@@ -60,10 +66,15 @@ public class Clerk_MainActivity extends AppCompatActivity implements View.OnClic
             intent.putExtra("user", user);
             Log.i("Debug", String.valueOf(user.getUserID()));
             startActivity(intent);
-        } else {
-            TextView msgText = (TextView) findViewById(R.id.loginMessage);
-            msgText.setText(R.string.login_error_message);
+        } else{
+            /* TextView msgText = (TextView) findViewById(R.id.loginMessage);
+            msgText.setText(R.string.login_error_message); */
+            Intent i = new Intent(this, HomepageActivity.class);
+            startActivity(i);
         }
+
+
+
     }
 }
 

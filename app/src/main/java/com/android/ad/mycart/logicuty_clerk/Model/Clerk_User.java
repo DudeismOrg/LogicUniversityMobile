@@ -11,16 +11,20 @@ public class Clerk_User implements Serializable {
     public Clerk_User() {
         this.userID = 0;
         this.firstName = "vasanth";
+
     }
 
     private String userName;
     private String password;
     private int userID;
     private String firstName;
+    private String roleCode;
+
 
     public Clerk_User(String userName, String password) {
         this.userName = userName;
         this.password = password;
+
     }
 
     public int getUserID() {
@@ -32,12 +36,16 @@ public class Clerk_User implements Serializable {
     }
 
     public boolean ValidateUser() {
+        // Json request
+
         return userName.equals(password);
     }
 
     public Clerk_User GetUser() {
         return new Clerk_User();
     }
+
+    //public String GetroleCode(){ return roleCode;}
 
     @Override
     public String toString() {
@@ -46,6 +54,7 @@ public class Clerk_User implements Serializable {
                 ", password='" + password + '\'' +
                 ", userID=" + userID +
                 ", firstName='" + firstName + '\'' +
+
                 '}';
     }
 }
