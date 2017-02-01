@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.android.ad.mycart.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class ManageRole extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_managerole);
 
         List<String> schoolNames = new ArrayList<String>();
         schoolNames = Role.listRole();

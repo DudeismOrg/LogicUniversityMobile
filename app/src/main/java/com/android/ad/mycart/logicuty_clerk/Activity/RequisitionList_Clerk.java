@@ -26,20 +26,20 @@ import java.util.List;
 public class RequisitionList_Clerk extends Activity {
 
     private List<Clerk_Item> item;
-    private void getData() {
+    /*private void getData() {
         item = new ArrayList<Clerk_Item>();
         item.add(new Clerk_Item("","Pen","", "10"));
         item.add(new Clerk_Item("","Pencil","", "20"));
         item.add(new Clerk_Item("","Eraser","", "14"));
         item.add(new Clerk_Item("","Ho Go Woo","", "15"));
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_requisition_list);
 
-        getData();
+        //getData();
         Bundle i = getIntent().getExtras();
         ArrayList<String> retrievePstnList = i.getStringArrayList("PositionList");
         Log.i("Value got", String.valueOf(retrievePstnList));
@@ -61,7 +61,7 @@ public class RequisitionList_Clerk extends Activity {
                             public void onClick(DialogInterface dialog, int which) {
                                 Toast.makeText(RequisitionList_Clerk.this, "Approved", Toast.LENGTH_SHORT).show();
                                 RequisitionItemAdapter.positions.clear();
-                                Intent intent = new Intent(getApplicationContext(), RequisitionMainActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), RequisitionActivity_Clerk.class);
                                 startActivity(intent);
                             }
                         })
@@ -80,7 +80,7 @@ public class RequisitionList_Clerk extends Activity {
             @Override
             public void onClick(View v) {
                 RequisitionItemAdapter.positions.clear();
-                Intent intent = new Intent(getApplicationContext(), RequisitionMainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RequisitionActivity_Clerk.class);
                 startActivity(intent);
             }
         });

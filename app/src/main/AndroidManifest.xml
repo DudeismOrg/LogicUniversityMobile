@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.ad.mycart">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,6 +22,15 @@
         </activity>
 
         <activity
+            android:name=".logicuty_clerk.Activity.RequisitionList_Clerk"
+            android:label="LogicUTY">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".logicuty_clerk.Activity.Clerk_MainActivity"
             android:label="LogicUTY">
             <intent-filter>
@@ -29,13 +40,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".logicuty_clerk.Activity.RequisitionMainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".logicuty_clerk.Activity.RequisitionActivity_Clerk">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,10 +47,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".logicuty_clerk.Activity.RequisitionList_Clerk"></activity>
-
-
-
 
 
         <activity
