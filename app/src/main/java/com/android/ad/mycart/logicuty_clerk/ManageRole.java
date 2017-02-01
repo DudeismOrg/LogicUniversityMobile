@@ -19,6 +19,7 @@ public class ManageRole extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_managerole);
 
+
         List<String> schoolNames = new ArrayList<String>();
         schoolNames = Role.listRole();
 

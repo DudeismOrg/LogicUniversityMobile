@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -51,6 +53,7 @@
                 android:background="@drawable/table_row_bg"/>
             <TextView
                 android:text="@string/ByDept"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
@@ -58,6 +61,7 @@
                 android:background="@drawable/table_row_bg"/>
             <TextView
                 android:text="@string/quantity"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
@@ -71,7 +75,9 @@
             android:background="@drawable/table_row_bg">
 
             <TextView
+
                 android:layout_width="match_parent"
+                android:id="@+id/itemcodeoutstanding"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:textSize="20sp"
@@ -80,6 +86,7 @@
 
             <TextView
                 android:layout_width="match_parent"
+                android:id="@+id/departmentnameoutstanding"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:textSize="20sp"
@@ -89,6 +96,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/quantityoutstanding"
                 android:textAlignment="center"
                 android:textSize="20sp"
                 android:background="@drawable/table_row_bg"
@@ -130,3 +138,48 @@
 
     </TableLayout>
 </RelativeLayout>
+<!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:orientation="horizontal"
+    android:paddingEnd="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingStart="16dp">
+
+    <TextView
+        android:id="@+id/itemcodeoutstanding"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="36dp"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="11sp"
+        tools:text="Approved By" />
+
+    <TextView
+        android:id="@+id/departmentnameoutstanding"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:maxLines="1"
+        android:textAllCaps="true"
+        android:textSize="11sp"
+        tools:text="ApprovedDate" />
+
+    <TextView
+        android:id="@+id/quantityoutstanding"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:maxLines="1"
+        android:textAllCaps="true"
+        android:textSize="11sp"
+        tools:text="ApprovedDate" />
+
+</LinearLayout> -->
