@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.android.ad.mycart.R;
 
+import com.android.ad.mycart.R;
+
 import java.util.ArrayList;
 import java.util.List;
 

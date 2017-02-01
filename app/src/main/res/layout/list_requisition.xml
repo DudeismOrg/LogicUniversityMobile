@@ -10,28 +10,63 @@
     tools:context=".logicuty_clerk.Activity.RequisitionActivity_Clerk"
     android:orientation="vertical">
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/requisition_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginBottom="16dp"
         android:text="Requisition Forms"
-        android:textSize="20dp"/>
+        android:textSize="20dp"/> -->
 
-    <ListView
+<!--    <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_below="@+id/requisition_textview"
-        android:choiceMode="multipleChoice"/>
+        android:choiceMode="multipleChoice"/> -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
-    <Button
-        android:text="Generate Req. Form"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/requisitionid"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="36dp"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="11sp"
+        tools:text="Requisition" />
+
+    <TextView
+        android:id="@+id/departmentcode"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="36dp"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="11sp"
+        tools:text="Approved By" />
+
+    <TextView
+        android:id="@+id/approveddate"
+        android:layout_width="0dp"
+        android:layout_weight="0.92"
         android:layout_height="wrap_content"
-        android:id="@+id/generateReqButton"
-        />
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:maxLines="1"
+        android:textAllCaps="true"
+        android:textSize="11sp"
+        tools:text="ApprovedDate" />
+
+    <CheckBox
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox" />
+
+</LinearLayout>
 
 
 </LinearLayout>
