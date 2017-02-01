@@ -1,7 +1,9 @@
 package com.android.ad.mycart.logicuty_hod;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -56,9 +58,19 @@ public class HodHome extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.approvecancel_click:
                 Toast.makeText(this, "Redirecting... Approve/Cancel", Toast.LENGTH_SHORT).show();
-                intent = new Intent(this, Clerk_PurchaseOrderActivity.class);
+                intent = new Intent(this, ApproveCancel.class);
                 break;
         }
+
+        SharedPreferences pref =
+                PreferenceManager.getDefaultSharedPreferences
+                        (getApplicationContext());
+        String DepartmentID = pref.getString("DepartmentID", "dept id");
+
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("DepartmentID", DepartmentID);
+        editor.commit();
+
         startActivity(intent);
     }
 }

@@ -50,12 +50,14 @@ public class RequisitionClass_Clerk extends HashMap<String,String> {
     private String requisitionId;
     private String approvedDate;
 
-    public RequisitionClass_Clerk(String depttCode, String requisitionNum, String approveddate) {
-        this.departmentCode= depttCode;
-        this.requisitionId = requisitionNum;
-        this.approvedDate = approveddate;
 
-
+    public RequisitionClass_Clerk(String departmentCode, String requisitionId, String approvedDate) {
+        put("departmentCode",departmentCode);
+        put("requisitionId", requisitionId);
+        put("approvedDate", approvedDate);
+        this.departmentCode= departmentCode;
+        this.requisitionId = requisitionId;
+        this.approvedDate = approvedDate;
     }
 
     public String getDepartmentCode() {

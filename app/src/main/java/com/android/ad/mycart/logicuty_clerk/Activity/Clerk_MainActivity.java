@@ -61,7 +61,10 @@ public class Clerk_MainActivity extends AppCompatActivity implements View.OnClic
         if (logInUser.ValidateUser()) {
             Clerk_User user = logInUser.GetUser();
             Toast.makeText(this, "Redirecting...", Toast.LENGTH_SHORT).show();
+
             ClerkCommon.CreateSharedPreference(getApplicationContext(), "UserId", String.valueOf(user.getUserID()) , "String");
+            ClerkCommon.CreateSharedPreference(getApplicationContext(), "DepartmentID", String.valueOf(user.getDeptId()) , "Integer");
+
             Intent intent = new Intent(this, ClerkHome.class);
             intent.putExtra("user", user);
             Log.i("Debug", String.valueOf(user.getUserID()));

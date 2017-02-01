@@ -71,14 +71,14 @@ public class RequisitionActivity_Clerk extends Activity implements AdapterView.O
         task.execute(Requisition_REQUEST_URL);
 
         // Find a reference to the {@link ListView} in the layout
-        ListView requisitionListView = (ListView) findViewById(R.id.listView1);
+        //ListView requisitionListView = (ListView) findViewById(R.id.listView1);
 
         // Create a new adapter that takes an empty list of earthquakes as input
         mAdapter = new RequisitionItemAdapter(this, new ArrayList<RequisitionClass_Clerk>());
 
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
-        requisitionListView.setAdapter(mAdapter);
+        //requisitionListView.setAdapter(mAdapter);
 
 
         final ListView lv = (ListView) findViewById(R.id.listView1);
