@@ -29,6 +29,15 @@
         </activity>
 
         <activity
+            android:name=".logicuty_hod.HodHome"
+            android:label="LogicUTY">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".logicuty_clerk.Activity.Clerk_MainActivity"
             android:label="LogicUTY">
             <intent-filter>

@@ -9,7 +9,7 @@
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        tools:context="logicuty_clerk.Activity.ClerkHome"
+        tools:context=".logicuty_hod.HodHome"
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Mange Role"
-                    android:id="@+id/outstanding_click"/>
+                    android:id="@+id/managerole_click"/>
                 <Button
                     android:layout_column="2"
                     android:paddingTop="25dp"
@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Approve/cancel"
-                    android:id="@+id/requisition_click"/>
+                    android:id="@+id/approvecancel_click"/>
             </TableRow>
         </TableLayout>
 
