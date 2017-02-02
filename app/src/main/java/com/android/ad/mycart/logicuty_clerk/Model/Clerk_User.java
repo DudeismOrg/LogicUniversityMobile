@@ -38,7 +38,6 @@ public class Clerk_User implements Serializable {
         // Json request
 
 
-
         return userName.equals(password);
     }
 

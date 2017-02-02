@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Role extends java.util.HashMap<String,String> {
 
-    final static String host = "http://192.168.20.172:8090/Customer/Service.svc";
+    final static String host = "http://172.23.134.192/InventoryService/Service.svc/Users";
 
     public Role(String id, String code, String name) {
         put("RoleID", id);
@@ -28,7 +28,7 @@ public class Role extends java.util.HashMap<String,String> {
     public static List<String> listRole() {
         List<String> list = new ArrayList<String>();
         try {
-            JSONArray a = JSONParser.getJSONArrayFromUrl(host+"/Role");
+            JSONArray a = JSONParser.getJSONArrayFromUrl(host);
             for (int i=0; i<a.length(); i++) {
                 String c = a.getString(i);
                 list.add(c);
@@ -41,12 +41,36 @@ public class Role extends java.util.HashMap<String,String> {
     public static Role getRole(String id) {
         Role role = null;
         try {
-            JSONObject c = JSONParser.getJSONFromUrl(host+"/Role/"+id);
+            JSONObject c = JSONParser.getJSONFromUrl(host);
             role = new Role(c.getString("RoleID"),
                     c.getString("RoleCode"),
                     c.getString("RoleName"));
         } catch (Exception e) {
         }
         return role;
+    }
+
+
+    public static List<Employee> listEmployeeByDeptId(int deptId) {
+
+        List<Employee> list = new ArrayList<Employee>();
+        try {
+            JSONArray a = JSONParser.getJSONArrayFromUrl(host + "/Users/" + deptId);
+
+            for (int i=0; i < a.length(); i++) {
+                JSONObject obj = a.getJSONObject(i);
+                list.add(new Employee(obj.getInt("UserID"),
+                        obj.getString("FirstName"),
+                        obj.getString("Email"),
+                        obj.getString("LastName"),
+                        obj.getInt("DepartmentID"),
+                        obj.getString("DepartmentName"),
+                        obj.getInt("RoleID"),
+                        obj.getString("RoleName")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

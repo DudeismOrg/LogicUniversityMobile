@@ -1,8 +1,11 @@
 package com.android.ad.mycart.logicuty_clerk;
 
+import android.util.Log;
+
 import com.android.ad.mycart.JSONParser;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -14,7 +17,17 @@ import java.util.List;
 
 public class Employee extends java.util.HashMap<String,String> {
 
-    final static String host = "http://192.168.20.172:8090/Customer/Service.svc";
+    final static String host = "http://172.23.134.192/InventoryService/Service.svc/operations/ValidateUser";
+
+    private int userID;
+    private String FirstName;
+    private String Email;
+    private String LastName;
+    private int DepartmentID;
+    private String DepartmentName;
+    private int RoleID;
+    private String RoleName;
+
 
     public Employee(int UserID, String FirstName, String Email, String LastName, int DepartmentID, String DepartmentName, int RoleID, String RoleName)
     {
@@ -29,6 +42,70 @@ public class Employee extends java.util.HashMap<String,String> {
     }
 
     public Employee(){}
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
+    public String getFirstName() {
+        return FirstName;
+    }
+
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String lastName) {
+        LastName = lastName;
+    }
+
+    public int getDepartmentID() {
+        return DepartmentID;
+    }
+
+    public void setDepartmentID(int departmentID) {
+        DepartmentID = departmentID;
+    }
+
+    public String getDepartmentName() {
+        return DepartmentName;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        DepartmentName = departmentName;
+    }
+
+    public int getRoleID() {
+        return RoleID;
+    }
+
+    public void setRoleID(int roleID) {
+        RoleID = roleID;
+    }
+
+    public String getRoleName() {
+        return RoleName;
+    }
+
+    public void setRoleName(String roleName) {
+        RoleName = roleName;
+    }
 
     public static List<String> listCustomer() {
         List<String> list = new ArrayList<String>();
@@ -69,4 +146,5 @@ public class Employee extends java.util.HashMap<String,String> {
         }
         String result = JSONParser.postStream(host+"/Update", jemployee.toString());
     }
+
 }

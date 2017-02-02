@@ -51,6 +51,7 @@ public class HodHome extends AppCompatActivity implements View.OnClickListener {
 
     public void onClick(View v) {
         Intent intent=null;
+
         switch (v.getId()) {
             case R.id.managerole_click:
                 Toast.makeText(this, "Redirecting... Manage Role", Toast.LENGTH_SHORT).show();
@@ -61,15 +62,6 @@ public class HodHome extends AppCompatActivity implements View.OnClickListener {
                 intent = new Intent(this, ApproveCancel.class);
                 break;
         }
-
-        SharedPreferences pref =
-                PreferenceManager.getDefaultSharedPreferences
-                        (getApplicationContext());
-        String DepartmentID = pref.getString("DepartmentID", "dept id");
-
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putString("DepartmentID", DepartmentID);
-        editor.commit();
 
         startActivity(intent);
     }

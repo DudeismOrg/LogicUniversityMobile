@@ -5,7 +5,10 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -38,16 +41,30 @@ public class ApproveCancel extends ListActivity {
         SharedPreferences pref =
                 PreferenceManager.getDefaultSharedPreferences
                         (getApplicationContext());
-        String DepartmentID = pref.getString("DepartmentID", "dept id");
+        int DepartmentID = pref.getInt("DepartmentID", 1);
 
-
+        registerForContextMenu(getListView());
     }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        RequisitionClass_Clerk s = (RequisitionClass_Clerk) getListAdapter().getItem(position);
+        /*RequisitionClass_Clerk s = (RequisitionClass_Clerk) getListAdapter().getItem(position);
         Toast.makeText(getApplicationContext(), s.get("requisitionId") + " selected",
-                Toast.LENGTH_LONG).show();
+                Toast.LENGTH_LONG).show();*/
+
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        if (v.getId()==R.id.list) {
+            AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
+            menu.setHeaderTitle(requisitionHod.get(info.position).getRequisitionId());
+            String[] menuItems = getResources().getStringArray(R.array.menu);
+            for (int i = 0; i<menuItems.length; i++) {
+                menu.add(Menu.NONE, i, i, menuItems[i]);
+            }
+        }
     }
 
 }
