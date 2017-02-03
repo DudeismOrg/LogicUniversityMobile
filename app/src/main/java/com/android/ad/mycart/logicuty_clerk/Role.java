@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Role extends java.util.HashMap<String,String> {
 
-    final static String host = "http://172.23.203.206/InventoryService/Service.svc/Users/";
+    final static String host = "http://172.23.134.192/LogicUniversityStore/InventoryService/Service.svc/Users/";
 
     public Role(String id, String code, String name) {
         put("RoleID", id);

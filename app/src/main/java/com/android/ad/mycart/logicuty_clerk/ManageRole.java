@@ -32,7 +32,7 @@ import java.util.List;
 
 public class ManageRole extends AppCompatActivity {
 
-    private static final String Requisition_REQUEST_URL = "http://172.23.203.206/InventoryService/Service.svc/Users/";
+    private static final String Requisition_REQUEST_URL = "http://172.23.134.192/LogicUniversityStore/InventoryService/Service.svc/Users/";
     JSONObject jsonobject;
     JSONArray jsonarray;
     List<Employee> eList;

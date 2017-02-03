@@ -17,7 +17,7 @@ import java.util.List;
 
 public class Employee extends java.util.HashMap<String,String> {
 
-    final static String host = "http://172.23.134.192/InventoryService/Service.svc/operations/ValidateUser";
+    final static String host = "http://172.23.134.192/LogicUniversityStore/InventoryService/Service.svc/operations/ValidateUser";
 
     private int UserID;
     private String FirstName;
