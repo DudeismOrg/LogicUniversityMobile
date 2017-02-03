@@ -45,8 +45,8 @@ public class HodHome extends AppCompatActivity implements View.OnClickListener {
 
     private void SetWelcomeMessage() {
         TextView welcomeMsg = (TextView) findViewById(R.id.welcomeMsg);
-        /*Clerk_User user = (Clerk_User) getIntent().getSerializableExtra("user");
-        welcomeMsg.setText("Welcome " + user.getFirstName());*/
+        Intent i = getIntent();
+        welcomeMsg.setText("Welcome " + i.getStringExtra("EmployeeRole"));
     }
 
     public void onClick(View v) {

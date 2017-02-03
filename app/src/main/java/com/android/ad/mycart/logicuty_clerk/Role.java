@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Role extends java.util.HashMap<String,String> {
 
-    final static String host = "http://172.23.134.192/InventoryService/Service.svc/Users";
+    final static String host = "http://172.23.203.206/InventoryService/Service.svc/Users/";
 
     public Role(String id, String code, String name) {
         put("RoleID", id);
@@ -51,11 +51,11 @@ public class Role extends java.util.HashMap<String,String> {
     }
 
 
-    public static List<Employee> listEmployeeByDeptId(int deptId) {
+    public static List<Employee> listEmployeeByDeptId(String deptId) {
 
         List<Employee> list = new ArrayList<Employee>();
         try {
-            JSONArray a = JSONParser.getJSONArrayFromUrl(host + "/Users/" + deptId);
+            JSONArray a = JSONParser.getJSONArrayFromUrl(host + deptId);
 
             for (int i=0; i < a.length(); i++) {
                 JSONObject obj = a.getJSONObject(i);
@@ -66,7 +66,8 @@ public class Role extends java.util.HashMap<String,String> {
                         obj.getInt("DepartmentID"),
                         obj.getString("DepartmentName"),
                         obj.getInt("RoleID"),
-                        obj.getString("RoleName")));
+                        obj.getString("RoleName"),
+                        obj.getString("RoleCode")));
             }
         } catch (Exception e) {
             e.printStackTrace();

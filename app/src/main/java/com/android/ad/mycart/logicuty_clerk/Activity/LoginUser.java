@@ -18,7 +18,7 @@ import java.util.List;
 
 public class LoginUser extends java.util.HashMap<String,String> {
 
-    final static String host = "http://172.23.134.192/InventoryService/Service.svc";
+    final static String host = "http://172.23.203.206/InventoryService/Service.svc";
 
     public LoginUser(String UserName, String Password) {
         put("UserName", UserName);
@@ -65,7 +65,7 @@ public class LoginUser extends java.util.HashMap<String,String> {
 
             if(obj != null) {
                 emp = new Employee(obj.getInt("UserID"), obj.getString("FirstName"), obj.getString("Email"), obj.getString("LastName"), obj.getInt("DepartmentID"),
-                        obj.getString("DepartmentName"), obj.getInt("RoleID"), obj.getString("RoleName"));
+                        obj.getString("DepartmentName"), obj.getInt("RoleID"), obj.getString("RoleName"),obj.getString("RoleCode"));
             }
 
         } catch (JSONException e) {

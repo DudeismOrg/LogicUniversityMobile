@@ -63,29 +63,30 @@ public class Clerk_MainActivity extends AppCompatActivity implements View.OnClic
         LoginUser logInUser = new LoginUser(userName.getText().toString(), password.getText().toString());
         Employee loginEmp = LoginUser.ValidateUser(logInUser);
 
-        ClerkCommon.CreateSharedPreference(getApplicationContext(), "UserId", String.valueOf(loginEmp.getUserID()) , "String");
-        ClerkCommon.CreateSharedPreference(getApplicationContext(), "DepartmentID", String.valueOf(loginEmp.getDepartmentID()) , "Integer");
-
 
         if (loginEmp!=null) {
-            if (loginEmp.getRoleName().equals("Head")) {
-                Toast.makeText(this, "Redirecting as HOD...", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, HodHome.class);
-                intent.putExtra("Employee", loginEmp);
-                Log.i("Debug", String.valueOf(loginEmp.getUserID()));
-                startActivity(intent);
-            } else if (loginEmp.getRoleName().equals("Representative")) {
-                Toast.makeText(this, "Redirecting as Representative...", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, HomepageActivity.class);
-                intent.putExtra("Employee", loginEmp);
-                Log.i("Debug", String.valueOf(loginEmp.getUserID()));
-                startActivity(intent);
-            } else if (loginEmp.getRoleName().equals("Clerk")) {
-                Toast.makeText(this, "Redirecting as Clerk...", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, ClerkHome.class);
-                intent.putExtra("Employee", loginEmp);
-                Log.i("Debug", String.valueOf(loginEmp.getUserID()));
-                startActivity(intent);
+            ClerkCommon.CreateSharedPreference(getApplicationContext(), "UserId", String.valueOf(loginEmp.getUserID()) , "String");
+            ClerkCommon.CreateSharedPreference(getApplicationContext(), "DepartmentID", String.valueOf(loginEmp.getDepartmentID()) , "Integer");
+            switch (loginEmp.getRoleCode())
+            {
+                case "HOD": Toast.makeText(this, "Redirecting as HOD...", Toast.LENGTH_SHORT).show();
+                        Intent intent1 = new Intent(this, HodHome.class);
+                        intent1.putExtra("EmployeeRole", loginEmp.getRoleName());
+                        Log.i("Debug", String.valueOf(loginEmp.getUserID()));
+                        startActivity(intent1);
+                        break;
+                case "EMP": Toast.makeText(this, "Redirecting as Employee...", Toast.LENGTH_SHORT).show();
+                        Intent intent2 = new Intent(this, HomepageActivity.class);
+                        //intent2.putExtra("Employee", loginEmp);
+                        Log.i("Debug", String.valueOf(loginEmp.getUserID()));
+                        startActivity(intent2);
+                        break;
+                case "CLERK": Toast.makeText(this, "Redirecting as Clerk...", Toast.LENGTH_SHORT).show();
+                        Intent intent3 = new Intent(this, ClerkHome.class);
+                        intent3.putExtra("EmployeeRole", loginEmp.getRoleName());
+                        Log.i("Debug", String.valueOf(loginEmp.getUserID()));
+                        startActivity(intent3);
+                        break;
             }
             }
         else {

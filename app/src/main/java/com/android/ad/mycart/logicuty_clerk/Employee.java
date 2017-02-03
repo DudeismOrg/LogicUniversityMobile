@@ -19,7 +19,7 @@ public class Employee extends java.util.HashMap<String,String> {
 
     final static String host = "http://172.23.134.192/InventoryService/Service.svc/operations/ValidateUser";
 
-    private int userID;
+    private int UserID;
     private String FirstName;
     private String Email;
     private String LastName;
@@ -27,9 +27,10 @@ public class Employee extends java.util.HashMap<String,String> {
     private String DepartmentName;
     private int RoleID;
     private String RoleName;
+    private String RoleCode;
 
 
-    public Employee(int UserID, String FirstName, String Email, String LastName, int DepartmentID, String DepartmentName, int RoleID, String RoleName)
+    public Employee(int UserID, String FirstName, String Email, String LastName, int DepartmentID, String DepartmentName, int RoleID, String RoleName,String RoleCode)
     {
         put("UserID",String.valueOf(UserID));
         put("FirstName", FirstName);
@@ -39,16 +40,27 @@ public class Employee extends java.util.HashMap<String,String> {
         put("DepartmentName", DepartmentName);
         put("RoleID", String.valueOf(RoleID));
         put("RoleName", RoleName);
+        put("RoleCode", RoleCode);
+
+        this.UserID=UserID;
+        this.FirstName=FirstName;
+        this.Email=Email;
+        this.LastName=LastName;
+        this.DepartmentID=DepartmentID;
+        this.DepartmentName=DepartmentName;
+        this.RoleID=RoleID;
+        this.RoleName=RoleName;
+        this.RoleCode=RoleCode;
     }
 
     public Employee(){}
 
     public int getUserID() {
-        return userID;
+        return UserID;
     }
 
     public void setUserID(int userID) {
-        this.userID = userID;
+        this.UserID = userID;
     }
 
     public String getFirstName() {
@@ -107,6 +119,15 @@ public class Employee extends java.util.HashMap<String,String> {
         RoleName = roleName;
     }
 
+    public String getRoleCode() {
+        return RoleCode;
+    }
+
+    public void setRoleCode(String RoleCode) {
+        RoleCode = RoleCode;
+    }
+
+
     public static List<String> listCustomer() {
         List<String> list = new ArrayList<String>();
         try {
@@ -125,7 +146,7 @@ public class Employee extends java.util.HashMap<String,String> {
         try {
             JSONObject c = JSONParser.getJSONFromUrl(host+"/Employee/"+id);
             emp = new Employee(Integer.parseInt(c.getString("UserID")),c.getString("FirstName"),c.getString("Email"),c.getString("LastName"),
-                    Integer.parseInt(c.getString("DepartmentID")),c.getString("DepartmentName"),Integer.parseInt(c.getString("RoleID")),c.getString("RoleName"));
+                    Integer.parseInt(c.getString("DepartmentID")),c.getString("DepartmentName"),Integer.parseInt(c.getString("RoleID")),c.getString("RoleName"),c.getString("RoleCode"));
         } catch (Exception e) {
         }
         return emp;
@@ -142,6 +163,15 @@ public class Employee extends java.util.HashMap<String,String> {
             jemployee.put("DepartmentName", emp.get("DepartmentName"));
             jemployee.put("RoleID", Integer.parseInt(emp.get("RoleID")));
             jemployee.put("RoleName", emp.get("RoleName"));
+        } catch (Exception e) {
+        }
+        String result = JSONParser.postStream(host+"/Update", jemployee.toString());
+    }
+
+    public static void updateEmployeeRole(String RoleCode) {
+        JSONObject jemployee = new JSONObject();
+        try {
+            jemployee.put("RoleCode", RoleCode);
         } catch (Exception e) {
         }
         String result = JSONParser.postStream(host+"/Update", jemployee.toString());

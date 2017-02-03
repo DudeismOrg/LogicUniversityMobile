@@ -1,5 +1,6 @@
 package com.android.ad.mycart.logicuty_clerk;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -31,12 +32,14 @@ import java.util.List;
 
 public class ManageRole extends AppCompatActivity {
 
-    private static final String Requisition_REQUEST_URL="http://172.23.134.192/InventoryService/Service.svc/Users/ENGL";
+    private static final String Requisition_REQUEST_URL = "http://172.23.203.206/InventoryService/Service.svc/Users/";
     JSONObject jsonobject;
     JSONArray jsonarray;
     List<Employee> eList;
-    int DepartmentID;
+    String DepartmentID;
     List<String> userNamesList;
+    Spinner mySpinner;
+    TextView userRoleView;
 
 
     @Override
@@ -47,7 +50,7 @@ public class ManageRole extends AppCompatActivity {
         SharedPreferences pref =
                 PreferenceManager.getDefaultSharedPreferences
                         (getApplicationContext());
-        DepartmentID = pref.getInt("DepartmentID",1);
+        DepartmentID = String.valueOf(pref.getInt("DepartmentID", 0));
 
         //List<Employee> eList = Role.listEmployeeByDeptId(DepartmentID);
 
@@ -55,7 +58,7 @@ public class ManageRole extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         DownloadJSON task = new DownloadJSON();
-        task.execute(Requisition_REQUEST_URL);
+        task.execute(Requisition_REQUEST_URL + DepartmentID);
 
         //List<String> schoolNames = new ArrayList<String>();
         //schoolNames = Role.listRole();
@@ -66,14 +69,16 @@ public class ManageRole extends AppCompatActivity {
         Button changebutton = (Button) findViewById(R.id.changebutton);
         registerForContextMenu(changebutton);
 
+
         Button assignButton = (Button) findViewById(R.id.assignButton);
         assignButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Employee e = (Employee) mySpinner.getTag();
-                Employee.updateEmployee(e);*/
+                //Employee e = (Employee) mySpinner.getTag();
+                Employee.updateEmployeeRole(userRoleView.getText().toString());
                 Toast.makeText(getApplicationContext(), "Assigned Role", Toast.LENGTH_SHORT).show();
-                recreate();
+                Intent in = new Intent(getApplicationContext(),ManageRole.class);
+                startActivity(in);
             }
         });
     }
@@ -116,36 +121,17 @@ public class ManageRole extends AppCompatActivity {
     private class DownloadJSON extends AsyncTask<String, Void, Void> {
 
         @Override
-        protected Void doInBackground(String...urls) {
+        protected Void doInBackground(String... urls) {
             // Locate the WorldPopulation Class
             eList = Role.listEmployeeByDeptId(DepartmentID);
             // Create an array to populate the spinner
             userNamesList = new ArrayList<String>();
             // JSON file URL address
-            jsonobject = JSONParser
-                    .getJSONFromUrl("http://172.23.134.192/InventoryService/Service.svc/Users/");
-
+            jsonarray = JSONParser.getJSONArrayFromUrl(urls[0]);
             try {
-                // Locate the NodeList name
-                jsonarray = jsonobject.getJSONArray("DepartmentID");
                 for (int i = 0; i < jsonarray.length(); i++) {
                     jsonobject = jsonarray.getJSONObject(i);
-
-                    Employee employee = new Employee();
-
-                    employee.setUserID(Integer.parseInt(jsonobject.optString("UserID")));
-                    employee.setFirstName(jsonobject.optString("FirstName"));
-                    employee.setEmail(jsonobject.optString("Email"));
-                    employee.setLastName(jsonobject.optString("LastName"));
-                    employee.setDepartmentID(Integer.parseInt(jsonobject.optString("DepartmentID")));
-                    employee.setDepartmentName(jsonobject.optString("DepartmentName"));
-                    employee.setRoleID(Integer.parseInt(jsonobject.optString("RoleID")));
-                    employee.setRoleName(jsonobject.optString("RoleName"));
-                    eList.add(employee);
-
-                    // Populate spinner with country names
-                    userNamesList.add(jsonobject.optString("RoleName"));
-
+                    userNamesList.add(jsonobject.getString("FirstName")+" "+jsonobject.getString("LastName"));
                 }
             } catch (Exception e) {
                 Log.e("Error", e.getMessage());
@@ -157,7 +143,7 @@ public class ManageRole extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void args) {
             // Locate the spinner in activity_main.xml
-            final Spinner mySpinner = (Spinner) findViewById(R.id.userSpinner);
+            mySpinner = (Spinner) findViewById(R.id.userSpinner);
             // Spinner adapter
             mySpinner
                     .setAdapter(new ArrayAdapter<String>(ManageRole.this,
@@ -173,6 +159,9 @@ public class ManageRole extends AppCompatActivity {
                                                    View arg1, int position, long arg3) {
                             // TODO Auto-generated method stub
                             // Locate the textviews in activity_main.xml
+                            userRoleView = (TextView) findViewById(R.id.userRole);
+                            userRoleView.setText(eList.get(position).getRoleCode());
+
                             /*TextView txtrank = (TextView) findViewById(R.id.rank);
                             TextView txtcountry = (TextView) findViewById(R.id.country);
                             TextView txtpopulation = (TextView) findViewById(R.id.population);
