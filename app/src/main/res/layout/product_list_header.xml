@@ -17,7 +17,8 @@
         android:gravity="left"
         android:text="Product"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/product_list_header_text_size"/>
+        android:textSize="@dimen/product_list_header_text_size"
+        android:id="@+id/textView6" />
 
     <TextView
         android:layout_width="0dip"

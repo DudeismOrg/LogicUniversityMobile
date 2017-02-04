@@ -24,7 +24,7 @@ import java.util.List;
 
 public class DisbursementActivity_Clerk extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-   private static final String Requisition_REQUEST_URL = "http://www.json-generator.com/api/json/get/bThTKumnsi?indent=2";
+   private static final String Requisition_REQUEST_URL = "http://www.json-generator.com/api/json/get/bGKVBssKJK?indent=2";
 
    // final static String host = "http://172.23.134.192/LogicUniversityStore/InventoryService/Service.svc/Disbursement";
 
@@ -58,30 +58,27 @@ public class DisbursementActivity_Clerk extends AppCompatActivity implements Ada
         final DisbursementItemAdapter itemAdapter = mAdapter;
         list.setAdapter(itemAdapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-
-                Intent appInfo = new Intent(DisbursementActivity_Clerk.this, DisbursementDetails.class);
-                //appInfo.putExtra("reqNum",itemAdapter.get);
-                //Object o =
-                list.getItemAtPosition(position);
-                //prestationEco str=(prestationEco)o;//As you are using Default String Adapter
-                //Toast.makeText(getBaseContext(),str.getTitle(),Toast.LENGTH_SHORT).show();
-            }
-        });
-                /*setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
-                Intent appInfo = new Intent(DisbursementActivity_Clerk.this, DisbursementDetails.class);
-                appInfo.putExtra("reqNum",itemAdapter.get);
-                startActivity(appInfo);
+                /*Intent appInfo = new Intent(DisbursementActivity_Clerk.this, DisbursementDetails.class);
+                //appInfo.putExtra("reqNum",itemAdapter.get);
+                startActivity(appInfo);*/
+
+                DisbursementClass_Clerk req = (DisbursementClass_Clerk) adapter.getItemAtPosition(position);
+
+                Intent disbursementActivity = new Intent(DisbursementActivity_Clerk.this, DisbursementDetails.class);
+                disbursementActivity.putExtra("ReqItem", req.getReqId());
+               // disbursementActivity.putExtra("ReqId",req.getReqId());
+                startActivity(disbursementActivity);
+
+                Toast.makeText(DisbursementActivity_Clerk.this, "Redirecting ", Toast.LENGTH_SHORT).show();
             }
-        });*/
+        });
 
         //----passing by intent
-        Intent intent = new Intent(DisbursementActivity_Clerk.this, DisbursementDetails.class);
+        /*Intent intent = new Intent(DisbursementActivity_Clerk.this, DisbursementDetails.class);
 
-        startActivity(intent);
+        startActivity(intent);*/
 
 
 
@@ -171,7 +168,7 @@ Intent i = new Intent(getApplicationContext(),DisbursementDetails.class);
         DisbursementClass_Clerk req = (DisbursementClass_Clerk) av.getItemAtPosition(position);
 
         Intent disbursementActivity = new Intent(this, DisbursementDetails.class);
-        disbursementActivity.putExtra("value", req);
+        disbursementActivity.putExtra("ReqItem", req.getReqNum());
         startActivity(disbursementActivity);
 
         Toast.makeText(DisbursementActivity_Clerk.this, "Redirecting ", Toast.LENGTH_SHORT).show();

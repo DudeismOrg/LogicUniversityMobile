@@ -28,7 +28,7 @@ import java.util.List;
 
 public class QueryUtils_ClerkDisbursement {
 
-    private static final String SAMPLE_JSON_RESPONSE = "http://www.json-generator.com/api/json/get/bThTKumnsi?indent=2";
+    private static final String SAMPLE_JSON_RESPONSE = "http://www.json-generator.com/api/json/get/bGKVBssKJK?indent=2";
    // final static String host = "http://172.23.134.192/LogicUniversityStore/InventoryService/Service.svc/Disbursement";
     private QueryUtils_ClerkDisbursement() {
     }
@@ -53,11 +53,12 @@ public class QueryUtils_ClerkDisbursement {
             for (int i = 0; i < baseJsonArray.length(); i++) {
 
                 JSONObject currentRequisition = baseJsonArray.getJSONObject(i);
+                String requisitionId  = currentRequisition.getString("ReqId");
                 String disbursementCode  = currentRequisition.getString("DisbursementNum");
-                String requisitionId = currentRequisition.getString("ReqNum");
+                String requisitionNumber = currentRequisition.getString("ReqNum");
                 String raisedate = currentRequisition.getString("RequestedDate");
 
-                DisbursementClass_Clerk disbursement = new DisbursementClass_Clerk(disbursementCode,requisitionId, raisedate);
+                DisbursementClass_Clerk disbursement = new DisbursementClass_Clerk(requisitionId,requisitionNumber,disbursementCode,raisedate);
                 disbursements.add(disbursement);
             }
 
