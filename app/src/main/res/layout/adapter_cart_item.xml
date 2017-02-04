@@ -8,6 +8,7 @@
     android:orientation="horizontal"
     >
 
+
     <!-- for items inside cart -->
     <TextView
         android:id="@+id/tvCartItemName"

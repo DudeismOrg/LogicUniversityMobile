@@ -1,7 +1,6 @@
 package com.android.ad.mycart.logicuty_clerk.Model;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -149,7 +148,7 @@ public class RequisitionItemAdapter extends ArrayAdapter<RequisitionClass_Clerk>
             viewHolder.reqId = (TextView) convertView.findViewById(R.id.text1);
             viewHolder.dept = (TextView) convertView.findViewById(R.id.text2);
             viewHolder.date = (TextView) convertView.findViewById(R.id.text3);
-            viewHolder.checkBox = (CheckBox) convertView.findViewById(R.id.check);
+          //  viewHolder.checkBox = (CheckBox) convertView.findViewById(R.id.check);
 
 
             // Cache the viewHolder object inside the fresh view
@@ -163,12 +162,12 @@ public class RequisitionItemAdapter extends ArrayAdapter<RequisitionClass_Clerk>
         viewHolder.reqId.setText(item.getDepartmentCode());
         viewHolder.dept.setText(item.getRequisitionId());
         viewHolder.date.setText(item.getApprovedDate());
-        viewHolder.checkBox.setTag(position);
+//        viewHolder.checkBox.setTag(position);
         // viewHolder.date.setText(item.get);
 
 
 
-        viewHolder.checkBox.setOnClickListener(new View.OnClickListener() {
+/*        viewHolder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // TODO Auto-generated method stub
@@ -186,7 +185,7 @@ public class RequisitionItemAdapter extends ArrayAdapter<RequisitionClass_Clerk>
                 }
                 // int position = ;
             }
-        });
+        }); */
 
         //viewHolder.checkBox.setOnCheckedChangeListener({});
         return convertView;

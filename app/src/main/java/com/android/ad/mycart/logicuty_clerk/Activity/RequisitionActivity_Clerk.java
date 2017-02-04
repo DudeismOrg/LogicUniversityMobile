@@ -1,9 +1,10 @@
 package com.android.ad.mycart.logicuty_clerk.Activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,41 +24,9 @@ import java.util.List;
  * Created by rajeev on 26/1/2017.
  */
 
-public class RequisitionActivity_Clerk extends Activity implements AdapterView.OnItemClickListener {
+public class RequisitionActivity_Clerk extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-   /* private List<Clerk_Item> itemList=new ArrayList<>();
-    private void getData(){
-        itemList.add(new Clerk_Item("reqId1","itemCode1","description1","1"));
-        itemList.add(new Clerk_Item("reqId2","itemCode2","description2","2"));
-        itemList.add(new Clerk_Item("reqId3","itemCode3","description3","3"));
-        itemList.add(new Clerk_Item("reqId4","itemCode4","description4","4"));
-    }
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_requisitionclerk);
-        getData();
-        Bundle b = getIntent().getExtras();
-        HashMap<String,String> item = (HashMap<String,String>) b.get("value");
-
-
-        TableLayout table = (TableLayout) findViewById(R.id.tableId);
-        TableRow row = (TableRow) findViewById(R.id.reqRowId);
-        TextView tv = (TextView)findViewById(R.id.reqID);
-        tv.setText(item.get("reqId"));
-
-        TableRow tableText = (TableRow) findViewById(R.id.gridviewTable);
-
-        GridView tgrid = (GridView)findViewById(R.id.gridview);
-
-        tgrid.setAdapter(new SimpleAdapter
-                (this, itemList, R.layout.row, new String[]{"itemCode", "description", "quantity"},
-                        new int[]{ R.id.text1, R.id.text2, R.id.text3}));
-
-    }
-
-*/
-   private static final String Requisition_REQUEST_URL = "http://beta.json-generator.com/api/json/get/VyoU8LtDG";
+   private static final String Requisition_REQUEST_URL = "http://172.23.134.192/LogicUniversityStore/InventoryService/Service.svc/Requisition/Status/Requested";
 
     private RequisitionItemAdapter mAdapter;
     //public static final String LOG_TAG = EarthquakeActivity.class.getName();
@@ -66,6 +35,9 @@ public class RequisitionActivity_Clerk extends Activity implements AdapterView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.requisition_activity);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
 
         RequisitionAsyncTask task = new RequisitionAsyncTask();
         task.execute(Requisition_REQUEST_URL);
@@ -112,6 +84,7 @@ public class RequisitionActivity_Clerk extends Activity implements AdapterView.O
         });
 
     }
+
 
 
 

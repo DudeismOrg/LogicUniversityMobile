@@ -33,7 +33,7 @@
         android:layout_marginTop="10dp"
         android:layout_weight="1"
         android:textAlignment="center" />
-
+<!--
     <CheckBox
         android:id="@+id/check"
         android:layout_width="0dp"
@@ -41,5 +41,5 @@
         android:layout_weight="1"
         android:focusable="false"
         android:text=""
-        android:textAlignment="viewEnd"></CheckBox>
+        android:textAlignment="viewEnd"></CheckBox> -->
 </LinearLayout>

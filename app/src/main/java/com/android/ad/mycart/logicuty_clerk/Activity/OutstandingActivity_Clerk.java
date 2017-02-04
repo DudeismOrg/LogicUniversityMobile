@@ -3,6 +3,7 @@ package com.android.ad.mycart.logicuty_clerk.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 
 import com.android.ad.mycart.R;
@@ -18,7 +19,7 @@ import java.util.List;
  */
 
 public class OutstandingActivity_Clerk extends AppCompatActivity {
-    private static final String Requisition_REQUEST_URL = "http://172.23.134.192/InventoryService/Service.svc/Outstanding";
+    private static final String Requisition_REQUEST_URL = "http://172.23.134.192/LogicUniversityStore/InventoryService/Service.svc/Outstanding";
 
     private OutstandingAdapter mAdapter;
     //public static final String LOG_TAG = EarthquakeActivity.class.getName();
@@ -27,6 +28,9 @@ public class OutstandingActivity_Clerk extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_outstanding);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
 
         OutstandingAsyncTask task = new OutstandingAsyncTask();
         task.execute(Requisition_REQUEST_URL);

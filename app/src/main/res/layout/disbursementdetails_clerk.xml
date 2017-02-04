@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#CE93D8"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_background"
+        android:alpha="0.30"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Disbursement Details"
+        android:id="@+id/disbursement_details"
+        android:textStyle="bold"
+        android:background="#9C27B0"
+        android:paddingBottom="8dp"
+        android:layout_below="@id/my_toolbar"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_below="@id/disbursement_details"
+        android:id="@+id/disbursementheader"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:text="ItemCode"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:text="QuantityOrdered"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:text="ItemsReceived"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/disbursement_receivedbyView"
+        android:layout_below="@id/disbursementheader">
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text ="Received By:"
+        android:layout_marginTop="16dp"
+        android:id="@+id/disbursement_recivedby"
+        />
+
+        <EditText
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/disbursementheader"
+            android:id="@+id/receivedby_Details"
+            android:layout_gravity="center_horizontal"
+            android:layout_toRightOf="@id/disbursement_recivedby"
+            android:hint="Emp001"
+            />
+    </LinearLayout>
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/disbursement_receivedbyView">
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text ="Unique Key:"
+        android:layout_marginTop="16dp"
+        android:id="@+id/disbursement_uniquekey"
+        android:layout_below="@id/disbursementheader"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/disbursementheader"
+        android:id="@+id/disbursement_enteruniquekey"
+        android:layout_gravity="center_horizontal"
+        android:layout_toRightOf="@id/disbursement_uniquekey"
+        android:hint="UQ001"
+        />
+</LinearLayout>
+</RelativeLayout>

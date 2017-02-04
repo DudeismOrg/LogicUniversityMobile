@@ -21,9 +21,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_itemlist_product);
-
-       // Toolbar myChildToolbar = (Toolbar) findViewById(R.id.my_carttoolbar);
-       // setSupportActionBar(myChildToolbar);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 

@@ -3,7 +3,7 @@ package com.android.ad.mycart.logicuty_clerk.Model;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.android.ad.mycart.logicuty_clerk.Activity.OutstandingActivity_Clerk;
+import com.android.ad.mycart.logicuty_clerk.Activity.DisbursementActivity_Clerk;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,41 +20,45 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+;
+
 /**
  * Created by rajeev on 1/2/2017.
  */
 
-public class QueryUtils_ClerkOutstanding {
-    private static final String SAMPLE_JSON_RESPONSE = "http://172.23.134.192/LogicUniversityStore/InventoryService/Service.svc/Outstanding";
+public class QueryUtils_ClerkDisbursement {
 
-    private QueryUtils_ClerkOutstanding() {
+    private static final String SAMPLE_JSON_RESPONSE = "http://www.json-generator.com/api/json/get/bThTKumnsi?indent=2";
+   // final static String host = "http://172.23.134.192/LogicUniversityStore/InventoryService/Service.svc/Disbursement";
+    private QueryUtils_ClerkDisbursement() {
     }
 
 
-    public static final String LOG_TAG = OutstandingActivity_Clerk.class.getName();
+   public static final String LOG_TAG = DisbursementActivity_Clerk.class.getName();
 
 
-    private static List<OutstandingClass_Clerk> extractFeatureFromJson(String outstandingJSON) {
+    private static List<DisbursementClass_Clerk> extractFeatureFromJson(String disbursementJSON) {
 
-        if (TextUtils.isEmpty(outstandingJSON)) {
+        if (TextUtils.isEmpty(disbursementJSON)) {
             return null;
         }
 
-        List<OutstandingClass_Clerk> outstandings = new ArrayList<>();
+        List<DisbursementClass_Clerk> disbursements = new ArrayList<>();
 
 
         try {
-            JSONArray baseJsonArray = new JSONArray(outstandingJSON);
+            JSONArray baseJsonArray = new JSONArray(disbursementJSON);
+            //JSONArray baseJsonArray = JSONParser.getJSONArrayFromUrl(host+"/1");
 
             for (int i = 0; i < baseJsonArray.length(); i++) {
 
-                JSONObject currentOutstanding = baseJsonArray.getJSONObject(i);
-                String departmentNameView  = currentOutstanding.getString("DeptName");
-                String itemNameView = currentOutstanding.getString("ItemName");
-                String quantityView = currentOutstanding.getString("Quantity");
+                JSONObject currentRequisition = baseJsonArray.getJSONObject(i);
+                String disbursementCode  = currentRequisition.getString("DisbursementNum");
+                String requisitionId = currentRequisition.getString("ReqNum");
+                String raisedate = currentRequisition.getString("RequestedDate");
 
-                OutstandingClass_Clerk outstanding = new OutstandingClass_Clerk(departmentNameView,itemNameView,quantityView);
-                outstandings.add(outstanding);
+                DisbursementClass_Clerk disbursement = new DisbursementClass_Clerk(disbursementCode,requisitionId, raisedate);
+                disbursements.add(disbursement);
             }
 
         } catch (JSONException e) {
@@ -62,11 +66,11 @@ public class QueryUtils_ClerkOutstanding {
             Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
         }
 
-        return outstandings;
+        return disbursements;
     }
 
 
-    public static List<OutstandingClass_Clerk> fetchOutstandingData(String requestUrl) {
+    public static List<DisbursementClass_Clerk> fetchRequisitionData(String requestUrl) {
         // Create URL object
         URL url = createUrl(requestUrl);
 
@@ -78,10 +82,10 @@ public class QueryUtils_ClerkOutstanding {
             Log.e(LOG_TAG, "Problem making the HTTP request.", e);
         }
 
-        List<OutstandingClass_Clerk> outstandings = extractFeatureFromJson(jsonResponse);
+        List<DisbursementClass_Clerk> disbursements = extractFeatureFromJson(jsonResponse);
 
 
-        return outstandings;
+        return disbursements;
     }
 
 
@@ -148,4 +152,6 @@ public class QueryUtils_ClerkOutstanding {
         }
         return output.toString();
     }
+
+
 }
