@@ -30,13 +30,21 @@ public class ApproveCancel extends ListActivity {
                         (getApplicationContext());
         DepartmentID = pref.getInt("DepartmentID", 1);
         getData();
-        setListAdapter(new SimpleAdapter
-                (this, lstRequisitions, android.R.layout.simple_list_item_2,
-                        new String[]{"RequisitionNum", "RequisitionDate"},
-                        new int[]{android.R.id.text1, android.R.id.text2}));
+        if(lstRequisitions.size() == 0)
+        {
+            Toast.makeText(ApproveCancel.this, "No pending requisitions!!!",
+                    Toast.LENGTH_LONG).show();
+            finish();
+        }
+        else {
+            setListAdapter(new SimpleAdapter
+                    (this, lstRequisitions, android.R.layout.simple_list_item_2,
+                            new String[]{"RequisitionNum", "RequisitionDate"},
+                            new int[]{android.R.id.text1, android.R.id.text2}));
 
 
-        registerForContextMenu(getListView());
+            registerForContextMenu(getListView());
+        }
     }
 
     List<RequisitionList> lstRequisitions;

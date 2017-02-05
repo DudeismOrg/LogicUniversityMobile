@@ -21,7 +21,7 @@
 
 
     <ListView
-        android:id="@+id/lvCartItems"
+        android:id="@+id/approvecancel_list"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_above="@+id/llTotal"
@@ -49,23 +49,23 @@
         android:weightSum="1">
 
         <Button
-            android:id="@+id/bClear"
+            android:id="@+id/approvebuttonapprove"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:background="@color/orange"
-            android:text="@string/clear_cart"
+            android:text="Approve"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:textStyle="bold"/>
 
         <Button
-            android:id="@+id/bShop"
+            android:id="@+id/cancelbuttonapprove"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:background="@color/orange"
-            android:text="@string/shop"
+            android:text="Reject"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:textStyle="bold"/>
