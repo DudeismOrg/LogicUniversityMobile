@@ -34,9 +34,10 @@
             </intent-filter>
         </activity>
 
+
         <activity
-            android:name=".logicuty_clerk.Activity.PurchaseOrder_MainActivity"
-            android:label="LogicUTY">
+            android:name=".logicuty_clerk.Activity.RetrivalActivity_Clerk"
+            android:label="Retrival Form">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -81,8 +82,6 @@
         <activity
             android:name=".logicuty_clerk.Activity.ClerkHome"
             android:label="LogicUTY" />
-        <activity android:name=".logicuty_clerk.Activity.Clerk_PurchaseOrderActivity" />
-        <activity android:name=".logicuty_clerk.Activity.ClerkViewCart"></activity>
 
         <activity android:name=".logicuty_clerk.ManageRole">
         <intent-filter>

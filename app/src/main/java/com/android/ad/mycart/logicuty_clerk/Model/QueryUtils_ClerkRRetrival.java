@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.ad.mycart.JSONParser;
-import com.android.ad.mycart.logicuty_clerk.Activity.RequisitionActivity_Clerk;
+import com.android.ad.mycart.logicuty_clerk.Activity.RetrivalActivity_Clerk;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,28 +25,28 @@ import java.util.List;
  * Created by rajeev on 1/2/2017.
  */
 
-public class QueryUtils_ClerkRequisition {
+public class QueryUtils_ClerkRRetrival {
 
-    private static final String SAMPLE_JSON_RESPONSE ="http://172.23.200.42/LogicUniversityStore/InventoryService/Service.svc/Requisition/";
+    private static final String SAMPLE_JSON_RESPONSE ="http://172.23.200.42/LogicUniversityStore/InventoryService/Service.svc/Retreival/1";
 
-    private QueryUtils_ClerkRequisition () {
+    private QueryUtils_ClerkRRetrival() {
     }
 
 
-    public static final String LOG_TAG = RequisitionActivity_Clerk.class.getName();
+    public static final String LOG_TAG = RetrivalActivity_Clerk.class.getName();
 
 
-    private static List<RequisitionClass_Clerk> extractFeatureFromJson(String requisitionJSON) {
+    private static List<RetrivalClass_Clerk> extractFeatureFromJson(String retrivalJSON) {
 
-        if (TextUtils.isEmpty(requisitionJSON)) {
+        if (TextUtils.isEmpty(retrivalJSON)) {
             return null;
         }
 
-        List<RequisitionClass_Clerk> requisitions = new ArrayList<>();
+        List<RetrivalClass_Clerk> retrivals = new ArrayList<>();
 
 
         try {
-            JSONArray baseJsonArray = new JSONArray(requisitionJSON);
+            JSONArray baseJsonArray = new JSONArray(retrivalJSON);
 
             for (int i = 0; i < baseJsonArray.length(); i++) {
 
@@ -55,20 +55,20 @@ public class QueryUtils_ClerkRequisition {
                 String ItemName = currentRequisition.getString("ItemName");
                 String Quantity = currentRequisition.getString("Quantity");
 
-                RequisitionClass_Clerk requisition = new RequisitionClass_Clerk(DeptName,ItemName, Quantity);
-                requisitions.add(requisition);
+                RetrivalClass_Clerk retrival = new RetrivalClass_Clerk(DeptName,ItemName, Quantity);
+                retrivals.add(retrival);
             }
 
         } catch (JSONException e) {
 
-            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+            Log.e("QueryUtils", "Problem parsing the logicuty JSON results", e);
         }
 
-        return requisitions;
+        return retrivals;
     }
 
-
-    public static List<RequisitionClass_Clerk> fetchRequisitionData(String requestUrl) {
+/*
+    public static List<RetrivalClass_Clerk> fetchRequisitionData(String requestUrl) {
         // Create URL object
         URL url = createUrl(requestUrl);
 
@@ -80,23 +80,24 @@ public class QueryUtils_ClerkRequisition {
             Log.e(LOG_TAG, "Problem making the HTTP request.", e);
         }
 
-        List<RequisitionClass_Clerk> requisitions = extractFeatureFromJson(jsonResponse);
+        List<RetrivalClass_Clerk> retrivals = extractFeatureFromJson(jsonResponse);
 
 
-        return requisitions;
-    }
+        return retrivals;
+    } */
 
-    public static List<DisbursementDetailsClass_Clerk> getDisbursementDetails(String reqId) {
 
-        if (TextUtils.isEmpty(reqId)) {
+    public static List<RetrivalClass_Clerk> getRetrivalDetails(String userId) {
+
+        if (TextUtils.isEmpty(userId)) {
             return null;
         }
 
-        List<DisbursementDetailsClass_Clerk> disbursements = new ArrayList<>();
+        List<RetrivalClass_Clerk> retrivals = new ArrayList<>();
 
 
         try {
-            JSONArray baseJsonArray = JSONParser.getJSONArrayFromUrl(SAMPLE_JSON_RESPONSE+reqId);
+            JSONArray baseJsonArray = JSONParser.getJSONArrayFromUrl(SAMPLE_JSON_RESPONSE);
             //JSONArray baseJsonArray = JSONParser.getJSONArrayFromUrl(host+"/1");
 
             for (int i = 0; i < baseJsonArray.length(); i++) {
@@ -106,8 +107,8 @@ public class QueryUtils_ClerkRequisition {
                 String ItemName  = currentRequisition.getString("ItemName");
                 String Quantity =  currentRequisition.getString("Quantity");
 
-                DisbursementDetailsClass_Clerk disbursement = new DisbursementDetailsClass_Clerk(DeptName,ItemName,Quantity);
-                disbursements.add(disbursement);
+                RetrivalClass_Clerk retrival = new RetrivalClass_Clerk(DeptName,ItemName,Quantity);
+                retrivals.add(retrival);
             }
 
         } catch (JSONException e) {
@@ -115,7 +116,7 @@ public class QueryUtils_ClerkRequisition {
             Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
         }
 
-        return disbursements;
+        return retrivals;
     }
 
     private static URL createUrl(String stringurl){

@@ -8,17 +8,21 @@ import java.util.HashMap;
 
 public class DisbursementClass_Clerk extends HashMap<String,String> {
 
-
+    private String reqId;
     private String reqNum;
     private String disId;
     private String date;
 
-    public DisbursementClass_Clerk(String depttCode, String requisitionNum, String approveddate) {
-        this.reqNum= depttCode;
-        this.disId = requisitionNum;
-        this.date = approveddate;
 
+    public DisbursementClass_Clerk(String reqId, String reqNum, String disId, String date) {
+        this.reqId= reqId;
+        this.reqNum= reqNum;
+        this.disId = disId;
+        this.date = date;
+    }
 
+    public String getReqId() {
+        return reqId;
     }
 
     public String getDate() {
