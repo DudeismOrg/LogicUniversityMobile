@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    <item android:id="@+id/role1" android:title="HOD"
+        android:orderInCategory="101"/>
+    <item android:id="@+id/role2" android:title="REP"
+        android:orderInCategory="102"/>
+    <item android:id="@+id/role3" android:title="CLERK"
+        android:orderInCategory="103"/>
+</menu>

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.ad.mycart.R;
+import com.android.ad.mycart.logicuty_clerk.Employee;
 import com.android.ad.mycart.logicuty_clerk.Model.Clerk_User;
 
 /**
@@ -45,8 +46,9 @@ public class ClerkHome extends AppCompatActivity implements View.OnClickListener
 
     private void SetWelcomeMessage() {
         TextView welcomeMsg = (TextView) findViewById(R.id.welcomeMsg);
-        Clerk_User user = (Clerk_User) getIntent().getSerializableExtra("user");
-        welcomeMsg.setText("Welcome " + user.getFirstName());
+        //Employee user = (Employee) getIntent().getSerializableExtra("Employee");
+        Intent i = getIntent();
+        welcomeMsg.setText("Welcome " + i.getStringExtra("EmployeeRole"));
     }
 
     public void onClick(View v) {
@@ -54,10 +56,11 @@ public class ClerkHome extends AppCompatActivity implements View.OnClickListener
         switch (v.getId()) {
             case R.id.outstanding_click:
                 Toast.makeText(this, "Redirecting... Outstanding", Toast.LENGTH_SHORT).show();
+                intent = new Intent(this,OutstandingActivity_Clerk.class);
                 break;
             case R.id.requisition_click:
                 Toast.makeText(this, "Redirecting... Requisition", Toast.LENGTH_SHORT).show();
-                intent = new Intent(this,RequisitionMainActivity.class);
+                intent = new Intent(this,RequisitionActivity_Clerk.class);
                 break;
             case R.id.purchaseorder_click:
                 Toast.makeText(this, "Redirecting... Purchase Order", Toast.LENGTH_SHORT).show();

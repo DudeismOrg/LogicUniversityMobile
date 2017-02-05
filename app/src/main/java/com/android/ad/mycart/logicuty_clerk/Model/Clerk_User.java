@@ -18,13 +18,12 @@ public class Clerk_User implements Serializable {
     private String password;
     private int userID;
     private String firstName;
-    private String roleCode;
+    private int deptId;
 
 
     public Clerk_User(String userName, String password) {
         this.userName = userName;
         this.password = password;
-
     }
 
     public int getUserID() {
@@ -38,6 +37,7 @@ public class Clerk_User implements Serializable {
     public boolean ValidateUser() {
         // Json request
 
+
         return userName.equals(password);
     }
 
@@ -45,7 +45,7 @@ public class Clerk_User implements Serializable {
         return new Clerk_User();
     }
 
-    //public String GetroleCode(){ return roleCode;}
+    public int getDeptId(){ return deptId;}
 
     @Override
     public String toString() {

@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class RequisitionClass_Clerk extends HashMap<String,String> {
 
-    public String reqId;
+    /*public String reqId;
     public String dept;
     public String reqDate;
     public String defaultStr;
@@ -43,6 +43,34 @@ public class RequisitionClass_Clerk extends HashMap<String,String> {
 
     public void setReqDate(String reqDate) {
         this.reqDate = reqDate;
+    } */
+
+
+    private String departmentCode;
+    private String requisitionId;
+    private String approvedDate;
+
+
+    public RequisitionClass_Clerk(String departmentCode, String requisitionId, String approvedDate) {
+        put("departmentCode",departmentCode);
+        put("requisitionId", requisitionId);
+        put("approvedDate", approvedDate);
+        this.departmentCode= departmentCode;
+        this.requisitionId = requisitionId;
+        this.approvedDate = approvedDate;
     }
+
+    public String getDepartmentCode() {
+        return departmentCode;
+    }
+
+    public String getRequisitionId() {
+        return requisitionId;
+    }
+
+    public String getApprovedDate() {
+        return approvedDate;
+    }
+
 }
 
