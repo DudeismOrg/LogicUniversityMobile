@@ -26,21 +26,13 @@
             android:layout_marginLeft="16dp"
             android:fontFamily="sans-serif-medium"
             android:textAlignment="textEnd"
-            android:id="@+id/itemcodeoutstanding"
+            android:id="@+id/itemName_Disbursement"
             android:textSize="11sp"
             tools:text="Item Name" />
 
-        <TextView
-            android:id="@+id/departmentnameoutstanding"
-            android:layout_width="0dp"
-            android:layout_weight="0.73"
-            android:layout_height="36dp"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="11sp"
-            tools:text="By Department" />
 
         <TextView
-            android:id="@+id/quantityoutstanding"
+            android:id="@+id/quantityOrdered_disbursement"
             android:layout_width="0dp"
             android:layout_weight="0.50"
             android:layout_height="wrap_content"

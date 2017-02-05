@@ -64,11 +64,13 @@ public class ClerkHome extends AppCompatActivity implements View.OnClickListener
                 break;
             case R.id.purchaseorder_click:
                 Toast.makeText(this, "Redirecting... Purchase Order", Toast.LENGTH_SHORT).show();
-                intent = new Intent(this, Clerk_PurchaseOrderActivity.class);
+                intent = new Intent(this, PurchaseOrder_MainActivity.class);
                 break;
             case R.id.disbursement_click:
                 Toast.makeText(this, "Redirecting... Disbursement", Toast.LENGTH_SHORT).show();
+                intent = new Intent(this,DisbursementActivity_Clerk.class);
                 break;
+
         }
         startActivity(intent);
     }

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#CE93D8"
+        android:elevation="4dp"
+
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imagelogindisbursement"
+        android:background="@drawable/login_background"
+        android:alpha="0.30"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Text"
+        android:textStyle="bold"
+        android:id="@+id/requisitioniddisbursement"
+        android:layout_below="@id/my_toolbar"/>
+
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/disbursementdetail_list"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/requisitioniddisbursement"
+    android:divider="@null"
+    android:dividerHeight="0dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ItemrecivebActualView"
+        android:weightSum="0.5"
+        android:orientation="horizontal"
+        android:layout_below="@id/disbursementdetail_list">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Item Receive"
+        android:id="@+id/actualitemreceived"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        tools:text="Item received"
+        android:maxLines="1"
+        android:maxLength="3"
+        android:gravity="fill_vertical"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="0.5"
+        android:layout_toRightOf="@id/ItemrecivebActualView"
+        android:orientation="horizontal"
+        android:layout_below="@id/disbursementdetail_list">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Received By"
+            android:id="@+id/itemreceived"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            tools:text="Item received"
+            android:maxLines="1"
+            android:maxLength="10"
+            android:ellipsize="start"
+            android:gravity="fill_vertical"
+            />
+    </LinearLayout>
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Accept"
+    android:onClick="orderAccept"
+    android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
+

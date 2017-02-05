@@ -54,11 +54,6 @@ public class Clerk_PurchaseOrderActivity extends AppCompatActivity implements Ad
             itemDetails = (Clerk_Item) getIntent().getSerializableExtra("itemDetails");
         }
 
-        //Display Suppliers
-        showSuppliers();
-
-        //Set ExistingItem data
-        setItemDetails();
 
         //SetEventListeners
         setListeners();
@@ -89,7 +84,6 @@ public class Clerk_PurchaseOrderActivity extends AppCompatActivity implements Ad
 
     private void setParameters() {
         supplierSpin = (Spinner) findViewById(R.id.supplier_spinner);
-        categorySpin = (Spinner) findViewById(R.id.category_spinner);
         itemSpin = (Spinner) findViewById(R.id.item_spinner);
         cartCount = (TextView) findViewById(R.id.cartCount);
         itemQuatity = (EditText) findViewById(R.id.quantityEditText);
@@ -134,6 +128,7 @@ public class Clerk_PurchaseOrderActivity extends AppCompatActivity implements Ad
                 }
                 //Intent intent =*/
         }
+        Intent i = new Intent(this,PurchaseOrder_MainActivity.class);
     }
 
     private boolean validateAddItem() {
@@ -169,12 +164,6 @@ public class Clerk_PurchaseOrderActivity extends AppCompatActivity implements Ad
                         showCategories(supplier);
                     }
                     break;
-                case R.id.category_spinner:
-                    if (categoryList != null) {
-                        category = categoryList.get(position);
-                        showItems(supplier, category);
-                    }
-                    break;
                 case R.id.item_spinner:
                     if (itemList != null) {
                         item = itemList.get(position);
@@ -194,14 +183,6 @@ public class Clerk_PurchaseOrderActivity extends AppCompatActivity implements Ad
     }
 
 
-    private void showSuppliers() {
-
-        supplierList = ClerkCommon.getSuppliers();
-        supplierList.add(0, "Select Supplier");
-        this.listAdapter(supplierSpin, supplierList);
-        if (itemDetails != null && itemDetails.getSupplier() != "")
-            showCategories(itemDetails.getSupplier());
-    }
 
     private void showCategories(String supplier) {
         //Get Categories of items supplied by a supplier

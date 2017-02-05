@@ -17,7 +17,7 @@
     android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/requisitionid"
+        android:id="@+id/disbursementrequisitionid"
         android:layout_width="0dp"
         android:layout_weight="0.60"
         android:layout_height="36dp"
@@ -25,19 +25,19 @@
         android:fontFamily="sans-serif-medium"
         android:textAlignment="textEnd"
         android:textSize="11sp"
-        tools:text="Requisition" />
+        tools:text="DisbursementNum" />
 
     <TextView
-        android:id="@+id/departmentcode"
+        android:id="@+id/disbursementdepartmentcode"
         android:layout_width="0dp"
         android:layout_weight="0.73"
         android:layout_height="36dp"
         android:fontFamily="sans-serif-medium"
         android:textSize="11sp"
-        tools:text="Approved By" />
+        tools:text="ReqNum" />
 
     <TextView
-        android:id="@+id/approveddate"
+        android:id="@+id/disbursementapproveddate"
         android:layout_width="0dp"
         android:layout_weight="0.50"
         android:layout_height="wrap_content"
@@ -46,13 +46,8 @@
         android:maxLines="1"
         android:textAllCaps="true"
         android:textSize="11sp"
-        tools:text="ApprovedDate" />
-<!--
-    <CheckBox
-        android:text=""
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkBox" /> -->
+        tools:text="RequestedDate" />
+
 
 </LinearLayout>
 

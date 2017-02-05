@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.ad.mycart">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -17,24 +17,29 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+
+
+
+
         <activity
-            android:name=".logicuty_clerk.ManageRole"
+            android:name=".logicuty_clerk.Activity.DisbursementDetails"
             android:label="LogicUTY">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".logicuty_hod.HodHome"
+            android:name=".logicuty_clerk.Activity.PurchaseOrder_MainActivity"
             android:label="LogicUTY">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity
             android:name=".logicuty_clerk.Activity.RequisitionList_Clerk"
             android:label="LogicUTY">
@@ -43,18 +48,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity
             android:name=".logicuty_clerk.Activity.Clerk_MainActivity"
-            android:label="LogicUTY">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".logicuty_hod.ApproveCancel"
             android:label="LogicUTY">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -69,6 +65,55 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".logicuty_clerk.Activity.OutstandingActivity_Clerk">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".logicuty_clerk.Activity.ClerkHome"
+            android:label="LogicUTY" />
+        <activity android:name=".logicuty_clerk.Activity.Clerk_PurchaseOrderActivity" />
+        <activity android:name=".logicuty_clerk.Activity.ClerkViewCart"></activity>
+
+        <activity android:name=".logicuty_clerk.ManageRole">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
+
+        <activity android:name=".logicuty_clerk.Activity.DisbursementActivity_Clerk">
+            android:name=".logicuty_hod.ApproveCancel"
+            android:label="LogicUTY">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".HomepageActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomepageActivity" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+
         </activity>
 
         <activity android:name=".logicuty_clerk.Activity.OutstandingActivity_Clerk">

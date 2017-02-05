@@ -3,6 +3,7 @@ package com.android.ad.mycart.logicuty_clerk.Model;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.android.ad.mycart.JSONParser;
 import com.android.ad.mycart.logicuty_clerk.Activity.RequisitionActivity_Clerk;
 
 import org.json.JSONArray;
@@ -26,7 +27,7 @@ import java.util.List;
 
 public class QueryUtils_ClerkRequisition {
 
-    private static final String SAMPLE_JSON_RESPONSE = "http://beta.json-generator.com/api/json/get/VyoU8LtDG";
+    private static final String SAMPLE_JSON_RESPONSE ="http://172.23.200.42/LogicUniversityStore/InventoryService/Service.svc/Requisition/";
 
     private QueryUtils_ClerkRequisition () {
     }
@@ -50,11 +51,11 @@ public class QueryUtils_ClerkRequisition {
             for (int i = 0; i < baseJsonArray.length(); i++) {
 
                 JSONObject currentRequisition = baseJsonArray.getJSONObject(i);
-                String departmentCode  = currentRequisition.getString("RequisitionNum");
-                String requisitionId = currentRequisition.getString("DepartmentCode");
-                String approveddate = currentRequisition.getString("ApprovedDate");
+                String DeptName  = currentRequisition.getString("DeptName");
+                String ItemName = currentRequisition.getString("ItemName");
+                String Quantity = currentRequisition.getString("Quantity");
 
-                RequisitionClass_Clerk requisition = new RequisitionClass_Clerk(departmentCode,requisitionId, approveddate);
+                RequisitionClass_Clerk requisition = new RequisitionClass_Clerk(DeptName,ItemName, Quantity);
                 requisitions.add(requisition);
             }
 
@@ -85,10 +86,37 @@ public class QueryUtils_ClerkRequisition {
         return requisitions;
     }
 
+    public static List<DisbursementDetailsClass_Clerk> getDisbursementDetails(String reqId) {
+
+        if (TextUtils.isEmpty(reqId)) {
+            return null;
+        }
+
+        List<DisbursementDetailsClass_Clerk> disbursements = new ArrayList<>();
 
 
+        try {
+            JSONArray baseJsonArray = JSONParser.getJSONArrayFromUrl(SAMPLE_JSON_RESPONSE+reqId);
+            //JSONArray baseJsonArray = JSONParser.getJSONArrayFromUrl(host+"/1");
 
+            for (int i = 0; i < baseJsonArray.length(); i++) {
 
+                JSONObject currentRequisition = baseJsonArray.getJSONObject(i);
+                String DeptName  = currentRequisition.getString("DeptName");
+                String ItemName  = currentRequisition.getString("ItemName");
+                String Quantity =  currentRequisition.getString("Quantity");
+
+                DisbursementDetailsClass_Clerk disbursement = new DisbursementDetailsClass_Clerk(DeptName,ItemName,Quantity);
+                disbursements.add(disbursement);
+            }
+
+        } catch (JSONException e) {
+
+            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+        }
+
+        return disbursements;
+    }
 
     private static URL createUrl(String stringurl){
         URL url = null;
