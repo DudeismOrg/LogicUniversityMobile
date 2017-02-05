@@ -69,7 +69,7 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Mange Role"
+                    android:text="Manage Role"
                     android:id="@+id/managerole_click"/>
                 <Button
                     android:layout_column="2"

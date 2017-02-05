@@ -119,7 +119,7 @@ public class ManageRole extends AppCompatActivity {
     }
 
     // Download JSON file AsyncTask
-    private class DownloadJSON extends AsyncTask<String, Void, Void> {
+    public class DownloadJSON extends AsyncTask<String, Void, Void> {
 
         @Override
         protected Void doInBackground(String... urls) {

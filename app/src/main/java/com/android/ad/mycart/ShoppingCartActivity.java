@@ -35,7 +35,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cart);
+        setContentView(R.layout.activity_approvecancelfinal);
 
         Toolbar myChildToolbar = (Toolbar) findViewById(R.id.my_carttoolbar);
         setSupportActionBar(myChildToolbar);
@@ -59,8 +59,8 @@ public class ShoppingCartActivity extends AppCompatActivity {
 
         lvCartItems.setAdapter(cartItemAdapter);
 
-        bClear = (Button) findViewById(R.id.bClear);
-        bShop = (Button) findViewById(R.id.bShop);
+        bClear = (Button) findViewById(R.id.approvebuttonapprove);
+        bShop = (Button) findViewById(R.id.cancelbuttonapprove);
 
         bClear.setOnClickListener(new View.OnClickListener() {
             @Override

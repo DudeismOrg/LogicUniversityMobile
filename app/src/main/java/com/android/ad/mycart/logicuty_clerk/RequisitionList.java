@@ -14,7 +14,7 @@ import java.util.List;
 
 public class RequisitionList extends java.util.HashMap<String, String> {
 
-    final static String host = "http://172.23.134.192/LogicUniversityStore/InventoryService/Service.svc/ApproveRequisition/";
+    final static String host = "http://172.23.200.42/LogicUniversityStore/InventoryService/Service.svc/ApproveRequisition/";
 
     private String ReqId;
     private String ReqNum;
