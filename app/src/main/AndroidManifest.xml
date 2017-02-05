@@ -21,6 +21,17 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".logicuty_hod.HodHome"
+            android:label="LogicUTY">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+
+
 
 
 
@@ -80,8 +91,11 @@
 
 
         <activity
+            android:name=".logicuty_hod.ApproveCancel"
+            android:label="LogicUTY">
             android:name=".logicuty_clerk.Activity.ClerkHome"
             android:label="LogicUTY" />
+        </activity>
 
         <activity android:name=".logicuty_clerk.ManageRole">
         <intent-filter>
@@ -116,6 +130,15 @@
 
         </activity>
 
+
+
+        <activity
+            android:name=".logicuty_clerk.Activity.ClerkHome"
+            android:label="LogicUTY" />
+
+
+
+
         <activity android:name=".ProductActivity"
            android:label="LogicUTY"
             android:parentActivityName=".MainActivity">
@@ -124,12 +147,21 @@
             android:value=".MainActivity" />
         </activity>
 
+
         <activity android:name=".ShoppingCartActivity"
             android:label="LogicUTY"
             android:parentActivityName=".MainActivity" >
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".MainActivity" />
+        </activity>
+
+        <activity android:name=".logicuty_hod.ApproveCancelDetails">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
     </application>

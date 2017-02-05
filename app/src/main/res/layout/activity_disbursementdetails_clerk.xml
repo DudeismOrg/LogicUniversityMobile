@@ -22,25 +22,43 @@
         android:layout_height="match_parent"
         android:id="@+id/imagelogindisbursement"
         android:background="@drawable/login_background"
-        android:alpha="0.30"/>
+        android:alpha="0.15"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:text="RequisitionID:"
+        android:paddingTop="4dp"
+        android:paddingLeft="8dp"
+        android:layout_below="@id/my_toolbar"
+        android:gravity="center"
+        android:id="@+id/reqidplaceholder"
+        android:textSize="16sp"
+    />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="4dp"
+        android:layout_toRightOf="@id/reqidplaceholder"
         android:text="Text"
+        android:paddingTop="4dp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:id="@+id/requisitioniddisbursement"
         android:layout_below="@id/my_toolbar"/>
 
+
 <ListView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/disbursementdetail_list"
     android:orientation="vertical"
+    android:layout_marginTop="16dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:isScrollContainer="false"
     android:layout_below="@id/requisitioniddisbursement"
     android:divider="@null"
-    android:dividerHeight="0dp"/>
+    android:dividerHeight="2dp"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -52,7 +70,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
         android:text="Item Receive"
+        android:textSize="16sp"
         android:id="@+id/actualitemreceived"/>
 
     <EditText
@@ -69,15 +89,17 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/uniquekeydisView"
         android:weightSum="0.5"
-        android:layout_toRightOf="@id/ItemrecivebActualView"
         android:orientation="horizontal"
-        android:layout_below="@id/disbursementdetail_list">
+        android:layout_below="@id/ItemrecivebActualView">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Received By"
-            android:id="@+id/itemreceived"/>
+            android:paddingLeft="8dp"
+            android:text="Unique Key"
+            android:textSize="16sp"
+            android:id="@+id/uniquekeydistextview"/>
 
         <EditText
             android:layout_width="wrap_content"
@@ -85,11 +107,12 @@
             android:textSize="15dp"
             tools:text="Item received"
             android:maxLines="1"
-            android:maxLength="10"
-            android:ellipsize="start"
+            android:maxLength="3"
+            android:id="@+id/uniquekeydisedit"
             android:gravity="fill_vertical"
             />
     </LinearLayout>
+
 
 <Button
     android:layout_width="wrap_content"

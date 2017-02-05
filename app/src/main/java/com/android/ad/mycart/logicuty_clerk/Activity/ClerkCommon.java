@@ -23,6 +23,9 @@ public class ClerkCommon {
             case "Boolean":
                 editor.putBoolean(key, Boolean.valueOf(value));
                 break;
+            case "Integer":
+                editor.putInt(key, Integer.parseInt(value));
+                break;
         }
         editor.commit();
     }

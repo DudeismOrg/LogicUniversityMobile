@@ -4,4 +4,6 @@
     <item name="editTextUN" type="id" />
     <item name="editTextPwd" type="id" />
     <item name="btButton" type="id">Button</item>
+    <item name="context1" type="id">1</item>
+    <item name="context2" type="id">2</item>
 </resources>
