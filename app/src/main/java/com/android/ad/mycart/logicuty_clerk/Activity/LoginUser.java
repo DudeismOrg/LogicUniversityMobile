@@ -18,7 +18,7 @@ import java.util.List;
 
 public class LoginUser extends java.util.HashMap<String,String> {
 
-    final static String host = "http://172.23.134.192/LogicUniversityStore/InventoryService/Service.svc";
+    final static String host = "http://172.23.200.42/LogicUniversityStore/InventoryService/Service.svc";
 
     public LoginUser(String UserName, String Password) {
         put("UserName", UserName);

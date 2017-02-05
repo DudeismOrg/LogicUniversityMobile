@@ -17,7 +17,7 @@ import java.util.List;
 
 public class Employee extends java.util.HashMap<String,String> {
 
-    final static String host = "http://172.23.134.192/LogicUniversityStore/InventoryService/Service.svc/operations/ValidateUser";
+    final static String host = "http://172.23.200.42/LogicUniversityStore/InventoryService/Service.svc/operations/ValidateUser";
 
     private int UserID;
     private String FirstName;
@@ -174,7 +174,7 @@ public class Employee extends java.util.HashMap<String,String> {
             jemployee.put("RoleCode", RoleCode);
         } catch (Exception e) {
         }
-        String result = JSONParser.postStream(host+"/Update", jemployee.toString());
+        String result = JSONParser.postStream("http://172.23.200.42/LogicUniversityStore/InventoryService/Service.svc/ManageRole", jemployee.toString());
     }
 
 }
