@@ -38,8 +38,8 @@ public class ClerkHome extends AppCompatActivity implements View.OnClickListener
         outstanding.setOnClickListener(this);
         Button requisition = (Button) findViewById(R.id.requisition_click);
         requisition.setOnClickListener(this);
-        Button purchaseorder = (Button) findViewById(R.id.purchaseorder_click);
-        purchaseorder.setOnClickListener(this);
+      //  Button purchaseorder = (Button) findViewById(R.id.purchaseorder_click);
+      //  purchaseorder.setOnClickListener(this);
         Button disbursement = (Button) findViewById(R.id.disbursement_click);
         disbursement.setOnClickListener(this);
     }
@@ -60,12 +60,12 @@ public class ClerkHome extends AppCompatActivity implements View.OnClickListener
                 break;
             case R.id.requisition_click:
                 Toast.makeText(this, "Redirecting... Requisition", Toast.LENGTH_SHORT).show();
-                intent = new Intent(this,RequisitionActivity_Clerk.class);
+                intent = new Intent(this,RetrivalActivity_Clerk.class);
                 break;
-            case R.id.purchaseorder_click:
+           /* case R.id.purchaseorder_click:
                 Toast.makeText(this, "Redirecting... Purchase Order", Toast.LENGTH_SHORT).show();
                 intent = new Intent(this, PurchaseOrder_MainActivity.class);
-                break;
+                break; */
             case R.id.disbursement_click:
                 Toast.makeText(this, "Redirecting... Disbursement", Toast.LENGTH_SHORT).show();
                 intent = new Intent(this,DisbursementActivity_Clerk.class);
