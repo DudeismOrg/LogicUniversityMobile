@@ -15,9 +15,10 @@ import java.util.List;
  * Created by Tyler Durden on 1/26/2017.
  */
 
-public class Employee extends java.util.HashMap<String,String> {
+public class Employee extends java.util.HashMap<String, String> {
 
     final static String host = "http://172.23.200.42/LogicUniversityStore/InventoryService/Service.svc/operations/ValidateUser";
+    final static String ManageRoleUrl = "http://172.23.200.42/LogicUniversityStore/InventoryService/Service.svc/ManageRole";
 
     private int UserID;
     private String FirstName;
@@ -30,9 +31,8 @@ public class Employee extends java.util.HashMap<String,String> {
     private String RoleCode;
 
 
-    public Employee(int UserID, String FirstName, String Email, String LastName, int DepartmentID, String DepartmentName, int RoleID, String RoleName,String RoleCode)
-    {
-        put("UserID",String.valueOf(UserID));
+    public Employee(int UserID, String FirstName, String Email, String LastName, int DepartmentID, String DepartmentName, int RoleID, String RoleName, String RoleCode) {
+        put("UserID", String.valueOf(UserID));
         put("FirstName", FirstName);
         put("Email", Email);
         put("LastName", LastName);
@@ -42,18 +42,19 @@ public class Employee extends java.util.HashMap<String,String> {
         put("RoleName", RoleName);
         put("RoleCode", RoleCode);
 
-        this.UserID=UserID;
-        this.FirstName=FirstName;
-        this.Email=Email;
-        this.LastName=LastName;
-        this.DepartmentID=DepartmentID;
-        this.DepartmentName=DepartmentName;
-        this.RoleID=RoleID;
-        this.RoleName=RoleName;
-        this.RoleCode=RoleCode;
+        this.UserID = UserID;
+        this.FirstName = FirstName;
+        this.Email = Email;
+        this.LastName = LastName;
+        this.DepartmentID = DepartmentID;
+        this.DepartmentName = DepartmentName;
+        this.RoleID = RoleID;
+        this.RoleName = RoleName;
+        this.RoleCode = RoleCode;
     }
 
-    public Employee(){}
+    public Employee() {
+    }
 
     public int getUserID() {
         return UserID;
@@ -131,8 +132,8 @@ public class Employee extends java.util.HashMap<String,String> {
     public static List<String> listCustomer() {
         List<String> list = new ArrayList<String>();
         try {
-            JSONArray a = JSONParser.getJSONArrayFromUrl(host+"/Employee");
-            for (int i=0; i<a.length(); i++) {
+            JSONArray a = JSONParser.getJSONArrayFromUrl(host + "/Employee");
+            for (int i = 0; i < a.length(); i++) {
                 String c = a.getString(i);
                 list.add(c);
             }
@@ -144,9 +145,9 @@ public class Employee extends java.util.HashMap<String,String> {
     public static Employee getEmployee(String id) {
         Employee emp = null;
         try {
-            JSONObject c = JSONParser.getJSONFromUrl(host+"/Employee/"+id);
-            emp = new Employee(Integer.parseInt(c.getString("UserID")),c.getString("FirstName"),c.getString("Email"),c.getString("LastName"),
-                    Integer.parseInt(c.getString("DepartmentID")),c.getString("DepartmentName"),Integer.parseInt(c.getString("RoleID")),c.getString("RoleName"),c.getString("RoleCode"));
+            JSONObject c = JSONParser.getJSONFromUrl(host + "/Employee/" + id);
+            emp = new Employee(Integer.parseInt(c.getString("UserID")), c.getString("FirstName"), c.getString("Email"), c.getString("LastName"),
+                    Integer.parseInt(c.getString("DepartmentID")), c.getString("DepartmentName"), Integer.parseInt(c.getString("RoleID")), c.getString("RoleName"), c.getString("RoleCode"));
         } catch (Exception e) {
         }
         return emp;
@@ -165,16 +166,17 @@ public class Employee extends java.util.HashMap<String,String> {
             jemployee.put("RoleName", emp.get("RoleName"));
         } catch (Exception e) {
         }
-        String result = JSONParser.postStream(host+"/Update", jemployee.toString());
+        String result = JSONParser.postStream(host + "/Update", jemployee.toString());
     }
 
-    public static void updateEmployeeRole(String RoleCode) {
+    public static void updateEmployeeRole(String RoleCode, int changeUserId) {
         JSONObject jemployee = new JSONObject();
         try {
             jemployee.put("RoleCode", RoleCode);
+            jemployee.put("UserId", changeUserId);
+            String result = JSONParser.postStream(ManageRoleUrl, jemployee.toString());
         } catch (Exception e) {
         }
-        String result = JSONParser.postStream("http://172.23.200.42/LogicUniversityStore/InventoryService/Service.svc/ManageRole", jemployee.toString());
     }
 
 }

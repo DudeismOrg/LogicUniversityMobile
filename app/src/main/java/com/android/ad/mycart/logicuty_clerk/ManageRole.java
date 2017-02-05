@@ -23,6 +23,7 @@ import com.android.ad.mycart.JSONParser;
 import com.android.ad.mycart.R;
 
 import com.android.ad.mycart.R;
+import com.android.ad.mycart.logicuty_hod.HodHome;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -32,7 +33,7 @@ import java.util.List;
 
 public class ManageRole extends AppCompatActivity {
 
-    private static final String Requisition_REQUEST_URL = "http://172.23.134.192/LogicUniversityStore/InventoryService/Service.svc/Users/";
+    private static final String Requisition_REQUEST_URL = "http://172.23.200.42/LogicUniversityStore/InventoryService/Service.svc/Users/";
     JSONObject jsonobject;
     JSONArray jsonarray;
     List<Employee> eList;
@@ -40,7 +41,7 @@ public class ManageRole extends AppCompatActivity {
     List<String> userNamesList;
     Spinner mySpinner;
     TextView userRoleView;
-
+    int selectedUserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,9 +76,9 @@ public class ManageRole extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Employee e = (Employee) mySpinner.getTag();
-                Employee.updateEmployeeRole(userRoleView.getText().toString());
-                Toast.makeText(getApplicationContext(), "Assigned Role", Toast.LENGTH_SHORT).show();
-                Intent in = new Intent(getApplicationContext(),ManageRole.class);
+                Employee.updateEmployeeRole(userRoleView.getText().toString(), selectedUserId);
+                Toast.makeText(getApplicationContext(), "Assigned Role "+userRoleView.getText().toString(), Toast.LENGTH_SHORT).show();
+                Intent in = new Intent(getApplicationContext(), HodHome.class);
                 startActivity(in);
             }
         });
@@ -131,7 +132,7 @@ public class ManageRole extends AppCompatActivity {
             try {
                 for (int i = 0; i < jsonarray.length(); i++) {
                     jsonobject = jsonarray.getJSONObject(i);
-                    userNamesList.add(jsonobject.getString("FirstName")+" "+jsonobject.getString("LastName"));
+                    userNamesList.add(jsonobject.getString("FirstName") + " " + jsonobject.getString("LastName"));
                 }
             } catch (Exception e) {
                 Log.e("Error", e.getMessage());
@@ -139,6 +140,8 @@ public class ManageRole extends AppCompatActivity {
             }
             return null;
         }
+
+
 
         @Override
         protected void onPostExecute(Void args) {
@@ -161,7 +164,7 @@ public class ManageRole extends AppCompatActivity {
                             // Locate the textviews in activity_main.xml
                             userRoleView = (TextView) findViewById(R.id.userRole);
                             userRoleView.setText(eList.get(position).getRoleCode());
-
+                            selectedUserId = eList.get(position).getUserID();
                             /*TextView txtrank = (TextView) findViewById(R.id.rank);
                             TextView txtcountry = (TextView) findViewById(R.id.country);
                             TextView txtpopulation = (TextView) findViewById(R.id.population);
